@@ -5,35 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>NODE - Vize Hazırlık Asistanı</title>
     <style>
-        /* Temel Sıfırlama ve Font Ayarları */
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #111520; color: #e2e8f0; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
-        
-        /* Ana Taşıyıcı Konteyner */
-        .container { display: flex; flex-direction: row; width: 100%; max-width: 1200px; gap: 20px; height: 90vh; }
+        /* Temel Ayarlar - Ekranın tamamını kullanması için */
+        html, body { height: 100%; margin: 0; padding: 0; background-color: #111520; overflow-x: hidden; }
+        * { box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
 
-        /* Sol Panel (Menü ve Açıklama) */
-        .left-panel { flex: 1; background-color: #1a1f35; border-radius: 20px; padding: 35px; display: flex; flex-direction: column; overflow-y: auto; }
-        .badge { background-color: #1e3a8a; color: #60a5fa; padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: bold; align-self: flex-start; margin-bottom: 20px; letter-spacing: 0.5px; }
-        h1 { color: #60a5fa; font-size: 3.5rem; margin-bottom: 15px; font-weight: 800; }
-        p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px; }
+        body { display: flex; justify-content: center; align-items: stretch; padding: 20px; }
+
+        /* Ana Konteyner */
+        .container { display: flex; width: 100%; max-width: 1400px; gap: 20px; }
+
+        /* Sol Panel - Menü */
+        .left-panel { width: 350px; background-color: #1a1f35; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; flex-shrink: 0; }
+        .badge { background-color: #1e3a8a; color: #60a5fa; padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; align-self: flex-start; margin-bottom: 15px; }
+        h1 { color: #60a5fa; font-size: 3rem; margin-bottom: 10px; font-weight: 800; }
+        p { color: #94a3b8; font-size: 0.9rem; line-height: 1.5; margin-bottom: 25px; }
 
         /* Ders Butonları */
-        .btn { background-color: #272d47; color: #cbd5e1; padding: 16px; border-radius: 12px; margin-bottom: 12px; font-size: 0.95rem; display: flex; align-items: center; gap: 12px; transition: background 0.3s ease; }
-        .btn:hover { background-color: #313859; }
+        .btn { background-color: #272d47; color: #cbd5e1; padding: 14px; border-radius: 12px; margin-bottom: 10px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; }
 
-        /* Sağ Panel (Yapay Zeka Botu) */
-        .right-panel { flex: 1.5; background-color: #1a1f35; border-radius: 20px; padding: 0; overflow: hidden; display: flex; flex-direction: column; }
-        iframe { width: 100%; height: 100%; border: none; flex-grow: 1; }
+        /* Sağ Panel - NODE'un Evi */
+        .right-panel { flex-grow: 1; background-color: #1a1f35; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; position: relative; min-height: 600px; }
+        
+        /* IFRAME'İ ZORLAYAN KISIM BURASI */
+        iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        /* TELEFON İÇİN DUYARLI TASARIM (Responsive) */
-        @media (max-width: 768px) {
-            body { padding: 10px; align-items: flex-start; height: auto; }
-            .container { flex-direction: column; height: auto; gap: 15px; }
-            .left-panel { padding: 25px; height: auto; flex: none; }
-            /* Mobilde botun yüksekliği sabitlenerek çökmesi engelleniyor */
-            .right-panel { height: 80vh; min-height: 600px; flex: none; }
-            h1 { font-size: 2.5rem; }
+        /* MOBİL DÜZENLEMELERİ */
+        @media (max-width: 900px) {
+            body { padding: 10px; display: block; height: auto; }
+            .container { flex-direction: column; height: auto; }
+            .left-panel { width: 100%; margin-bottom: 15px; }
+            /* Mobilde NODE'u ekrana hapsediyoruz */
+            .right-panel { height: 80vh; min-height: 550px; width: 100%; }
         }
     </style>
 </head>
@@ -42,19 +44,19 @@
         <div class="left-panel">
             <div class="badge">VİZE HAZIRLIK ASİSTANI V1.0</div>
             <h1>NODE</h1>
-            <p>Gelişmiş döküman analizi, adım adım problem çözümü ve akademik asistanlık için tasarlandı. Vizeler için en iyi çalışma partnerin.</p>
+            <p>Gelişmiş döküman analizi ve vize asistanı. Senin notların, senin kuralların.</p>
             
-            <div class="btn">⚙️ Yöneylem Araştırması Modelleri</div>
-            <div class="btn">💻 C++ Nesne Yönelimli Programlama</div>
-            <div class="btn">🤖 Makine Öğrenmesi Hata Hesaplamaları</div>
-            <div class="btn">🧠 Transformer & NLP Temelleri</div>
+            <div class="btn">⚙️ Yöneylem Araştırması</div>
+            <div class="btn">💻 C++ OOP</div>
+            <div class="btn">🤖 Makine Öğrenmesi</div>
+            <div class="btn">🧠 NLP & Transformers</div>
         </div>
 
         <div class="right-panel">
             <iframe 
                 src="https://udify.app/chat/OIAwfvtlfStG8TMt" 
                 allow="microphone; camera"
-                title="NODE AI Asistanı">
+                title="NODE AI">
             </iframe>
         </div>
     </div>
