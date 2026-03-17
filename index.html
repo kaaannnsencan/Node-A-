@@ -3,56 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>NODE - Vize Hazırlık Asistanı</title>
+    <title>NODE - Vize Asistanı</title>
     <style>
-        /* Temel Ayarlar - Ekranın tamamını kullanması için */
-        html, body { height: 100%; margin: 0; padding: 0; background-color: #111520; overflow-x: hidden; }
-        * { box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-
-        body { display: flex; justify-content: center; align-items: stretch; padding: 20px; }
-
-        /* Ana Konteyner */
-        .container { display: flex; width: 100%; max-width: 1400px; gap: 20px; }
-
-        /* Sol Panel - Menü */
-        .left-panel { width: 350px; background-color: #1a1f35; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; flex-shrink: 0; }
-        .badge { background-color: #1e3a8a; color: #60a5fa; padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; align-self: flex-start; margin-bottom: 15px; }
-        h1 { color: #60a5fa; font-size: 3rem; margin-bottom: 10px; font-weight: 800; }
-        p { color: #94a3b8; font-size: 0.9rem; line-height: 1.5; margin-bottom: 25px; }
-
-        /* Ders Butonları */
-        .btn { background-color: #272d47; color: #cbd5e1; padding: 14px; border-radius: 12px; margin-bottom: 10px; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; }
-
-        /* Sağ Panel - NODE'un Evi */
-        .right-panel { flex-grow: 1; background-color: #1a1f35; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; position: relative; min-height: 600px; }
+        /* Ekranı tam kaplaması için kesin kurallar */
+        html, body { margin: 0; padding: 0; height: 100%; background-color: #111520; font-family: 'Segoe UI', sans-serif; box-sizing: border-box; }
         
-        /* IFRAME'İ ZORLAYAN KISIM BURASI */
-        iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        /* Ana Taşıyıcı: Yan yana iki kutu */
+        .container { display: flex; gap: 20px; padding: 20px; height: 100vh; width: 100%; box-sizing: border-box; }
 
-        /* MOBİL DÜZENLEMELERİ */
-        @media (max-width: 900px) {
-            body { padding: 10px; display: block; height: auto; }
-            .container { flex-direction: column; height: auto; }
-            .left-panel { width: 100%; margin-bottom: 15px; }
-            /* Mobilde NODE'u ekrana hapsediyoruz */
-            .right-panel { height: 80vh; min-height: 550px; width: 100%; }
+        /* Sol Menü: Sabit genişlik */
+        .left-menu { width: 300px; background-color: #1a1f35; border-radius: 15px; padding: 20px; color: white; display: flex; flex-direction: column; }
+        .left-menu h1 { color: #60a5fa; margin-top: 0; font-size: 2.5rem; }
+        .left-menu p { color: #94a3b8; font-size: 0.9rem; margin-bottom: 20px; }
+        .btn { background-color: #272d47; padding: 15px; border-radius: 10px; margin-bottom: 10px; font-size: 14px; color: #cbd5e1; font-weight: bold; }
+
+        /* Sağ Panel: Kalan tüm alanı ZORLA kaplar */
+        .right-content { flex: 1; background-color: #1a1f35; border-radius: 15px; overflow: hidden; display: flex; }
+        
+        /* Bot: Sağ panelin tam içine oturur */
+        iframe { width: 100%; height: 100%; border: none; display: block; }
+
+        /* TELEFON EKRANI İÇİN KESİN ÇÖZÜM */
+        @media (max-width: 768px) {
+            .container { flex-direction: column; height: auto; min-height: 100vh; padding: 10px; }
+            .left-menu { width: 100%; }
+            /* Mobilde bota devasa bir alan veriyoruz */
+            .right-content { width: 100%; height: 85vh; min-height: 600px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="left-panel">
-            <div class="badge">VİZE HAZIRLIK ASİSTANI V1.0</div>
+        <div class="left-menu">
             <h1>NODE</h1>
-            <p>Gelişmiş döküman analizi ve vize asistanı. Senin notların, senin kuralların.</p>
-            
-            <div class="btn">⚙️ Yöneylem Araştırması</div>
+            <p>İstinye'deki en iyi vize kankan. C++, Makine Öğrenmesi veya Yöneylem... Ne istersen sor.</p>
+            <div class="btn">⚙️ Yöneylem Modelleri</div>
             <div class="btn">💻 C++ OOP</div>
             <div class="btn">🤖 Makine Öğrenmesi</div>
-            <div class="btn">🧠 NLP & Transformers</div>
         </div>
 
-        <div class="right-panel">
+        <div class="right-content">
             <iframe 
                 src="https://udify.app/chat/OIAwfvtlfStG8TMt" 
                 allow="microphone; camera"
